@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+   
+<div class="container">
+  <h1 align="center">Desi-Farms <a routerLink="/chart">a</a></h1>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+      <div class="form-group">
+        <label for="email">Date:</label>
+        <input type="date"  class="form-control" [(ngModel)]="info.myDate"  value="{{info.myDate}}"  name="date">
+        <br><div class="row"> <div class="col-md-4"></div><div class="col-md-4"><button align="center" (click) = "get(info)" class="btn btn-success">Search</button></div> <div class="col-md-4"></div></div>
+      </div></div>
+      <div class="col-md-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4"></div>
+       
+        <tabset>
+            <tab heading="Milk" id="tab1">
+  
+  
+  <div class="row">
+      <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <h2>Counter Sale</h2>
+            <form action="/action_page.php">
+             
+              <div >
+                  <label for="pwd">Cow Gold:</label><br>
+              <div class="input-group">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-danger btn-number" (click)="info.cgold = info.cgold - 1;ccow(info.cgold)" data-type="minus" data-field="quant[2]">
+                      <span class="glyphicon glyphicon-minus"></span>
+                    </button>
+                </span>
+                <input type="text" name="quant[2]" [(ngModel)]="info.cgold" (keyup)="ccow(info.cgold)" class="form-control input-number" value="{{info.cgold}}" >
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-success btn-number"  (click)="info.cgold = info.cgold + 1;ccow(info.cgold)" data-type="plus" data-field="quant[2]">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                </span>
+            </div></div>
+              <!-- <div>
+               RBM <input type="text" class="form-control" [(ngModel)]="info.crbm" (keyup)="cbuf(info.crbm)" placeholder="Enter quantity in litres" name="bm">
+              </div> -->
+              <div >
+                <label for="pwd">RBM:</label><br>
+            <div class="input-group">
+              <span class="input-group-btn">
+                  <button type="button" class="btn btn-danger btn-number" (click)="info.crbm = info.crbm - 1;cbuf(info.crbm)" data-type="minus" data-field="quant[3]">
+                    <span class="glyphicon glyphicon-minus"></span>
+                  </button>
+              </span>
+              <input type="text" name="quant[3]" [(ngModel)]="info.crbm" (keyup)="cbuf(info.crbm)" class="form-control input-number" value="{{info.crbm}}" >
+              <span class="input-group-btn">
+                  <button type="button" class="btn btn-success btn-number"  (click)="info.crbm = info.crbm + 1;cbuf(info.crbm)" data-type="plus" data-field="quant[3]">
+                      <span class="glyphicon glyphicon-plus"></span>
+                  </button>
+              </span>
+          </div></div>
+              <!-- <br><div>
+                Gir <input type="text" class="form-control" [(ngModel)]="info.cgir" (keyup)="cgirc(info.cgir)" placeholder="Enter quantity in litres" name="gr">
+               </div>
+                -->
+                <div >
+                  <label for="pwd">Gir:</label><br>
+              <div class="input-group">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-danger btn-number" (click)="info.cgir = info.cgir - 1;cgirc(info.cgir)" data-type="minus" data-field="quant[4]">
+                      <span class="glyphicon glyphicon-minus"></span>
+                    </button>
+                </span>
+                <input type="text" name="quant[4]" [(ngModel)]="info.cgir" (keyup)="cgirc(info.cgir)" class="form-control input-number" value="{{info.cgir}}" >
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-success btn-number"  (click)="info.cgir = info.cgir + 1;cgirc(info.cgir)" data-type="plus" data-field="quant[4]">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                </span>
+            </div></div>
+            </form>
+          </div>
+  
+        <div class="col-md-5">
+  <h2>Retail</h2>
+  <form action="/action_page.php">
+    
+    <div >
+      <label for="pwd">Cow Gold:</label><br>
+  <div class="input-group">
+    <span class="input-group-btn">
+        <button type="button" class="btn btn-danger btn-number" (click)="info.rgold = info.rgold - 1;rcow(info.rgold)" data-type="minus" data-field="quant[5]">
+          <span class="glyphicon glyphicon-minus"></span>
+        </button>
+    </span>
+    <input type="text" name="quant[5]" [(ngModel)]="info.rgold" (keyup)="rcow(info.rgold)" class="form-control input-number"  value="{{info.rcow}}" >
+    <span class="input-group-btn">
+        <button type="button" class="btn btn-success btn-number"  (click)="info.rgold = info.rgold + 1;rcow(info.rgold)" data-type="plus" data-field="quant[5]">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </span>
+  </div></div>
+  
+  
+     <div >
+      <label for="pwd">RBM:</label><br>
+  <div class="input-group">
+    <span class="input-group-btn">
+        <button type="button" class="btn btn-danger btn-number" (click)="info.rrbm = info.rrbm - 1;rbuf(info.rrbm)" data-type="minus" data-field="quant[6]">
+          <span class="glyphicon glyphicon-minus"></span>
+        </button>
+    </span>
+    <input type="text" name="quant[6]" [(ngModel)]="info.rrbm" (keyup)="rbuf(info.rrbm)" class="form-control input-number" value="{{info.rrbm}}" >
+    <span class="input-group-btn">
+        <button type="button" class="btn btn-success btn-number"  (click)="info.rrbm = info.rrbm + 1;rbuf(info.rrbm)" data-type="plus" data-field="quant[6]">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </span>
+  </div></div>
+     <div >
+      <label for="pwd">Gir:</label><br>
+  <div class="input-group">
+    <span class="input-group-btn">
+        <button type="button" class="btn btn-danger btn-number" (click)="info.rgir = info.rgir - 1;rgirc(info.rgir)" data-type="minus" data-field="quant[7]">
+          <span class="glyphicon glyphicon-minus"></span>
+        </button>
+    </span>
+    <input type="text" name="quant[7]" [(ngModel)]="info.rgir" (keyup)="rgirc(info.rgir)" class="form-control input-number" value="{{info.rgir}}" >
+    <span class="input-group-btn">
+        <button type="button" class="btn btn-success btn-number"  (click)="info.rgir = info.rgir + 1;rgirc(info.rgir)" data-type="plus" data-field="quant[7]">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </span>
+  </div></div>
+    
+    
+  </form>
+  </div>
+  <div class="col-md-1"></div>
+  
+  <!-- <br>
+        <pre>For Debugging Purpose <br>{{info | json}}</pre> -->
+  </div>
+              
+            </tab>
+            <tab heading="Ice-Cream">
+              
+              <div class="row">
+                  <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <h2>Counter Sale</h2>
+                        <form action="/action_page.php">
+                         
+                          <div >
+                              <label for="pwd">Cornetto Oreo:</label><br>
+                          <div class="input-group">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-danger btn-number" (click)="info.oreo = info.oreo - 1;koreo(info.oreo)" data-type="minus" data-field="quant[8]">
+                                  <span class="glyphicon glyphicon-minus"></span>
+                                </button>
+                            </span>
+                            <input type="text" name="quant[8]" [(ngModel)]="info.oreo" (keyup)="koreo(info.oreo)" class="form-control input-number" value="{{info.oreo}}" >
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-success btn-number"  (click)="info.oreo = info.oreo + 1;koreo(info.oreo)" data-type="plus" data-field="quant[8]">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </button>
+                            </span>
+                        </div></div>
+                        <div >
+                          <label for="pwd">Vanilla Chocolate:</label><br>
+                      <div class="input-group">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-danger btn-number" (click)="info.choc = info.choc - 1;kchoc(info.choc)" data-type="minus" data-field="quant[9]">
+                              <span class="glyphicon glyphicon-minus"></span>
+                            </button>
+                        </span>
+                        <input type="text" name="quant[9]" [(ngModel)]="info.choc" (keyup)="kchoc(info.choc)" class="form-control input-number" value="{{info.choc}}" >
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-success btn-number"  (click)="info.choc = info.choc + 1;kchoc(info.choc)" data-type="plus" data-field="quant[9]">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                        </span>
+                    </div></div>
+                          <div >
+                            <label for="pwd">Magnum:</label><br>
+                        <div class="input-group">
+                          <span class="input-group-btn">
+                              <button type="button" class="btn btn-danger btn-number" (click)="info.mag = info.mag - 1;kmag(info.mag)" data-type="minus" data-field="quant[10]">
+                                <span class="glyphicon glyphicon-minus"></span>
+                              </button>
+                          </span>
+                          <input type="text" name="quant[10]" [(ngModel)]="info.mag" (keyup)="kmag(info.mag)" class="form-control input-number" value="{{info.mag}}" >
+                          <span class="input-group-btn">
+                              <button type="button" class="btn btn-success btn-number"  (click)="info.mag = info.mag + 1;kmag(info.mag)" data-type="plus" data-field="quant[10]">
+                                  <span class="glyphicon glyphicon-plus"></span>
+                              </button>
+                          </span>
+                      </div></div>
+                           
+                        </form>
+                      </div>
+            
+                    
+            <div class="col-md-2"></div>
+            
+              <!-- <br>
+                    <pre>For Debugging Purpose <br>{{info | json}}</pre> -->
+            </div></tab>
+            <tab heading="Bi-Products">
+              
+              <div class="row">
+                  <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <h2>Counter Sale</h2>
+                        <form action="/action_page.php">
+                         
+                          <div >
+                              <label for="pwd">Lassi:</label><br>
+                          <div class="input-group">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-danger btn-number" (click)="info.lassi = info.lassi - 1;lassi(info.lassi)" data-type="minus" data-field="quant[11]">
+                                  <span class="glyphicon glyphicon-minus"></span>
+                                </button>
+                            </span>
+                            <input type="text" name="quant[11]" [(ngModel)]="info.lassi" (keyup)="lassi(info.lassi)" class="form-control input-number" value="{{info.lassi}}" >
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-success btn-number"  (click)="info.lassi = info.lassi + 1;lassi(info.lassi)" data-type="plus" data-field="quant[11]">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </button>
+                            </span>
+                        </div></div>
+                        <div >
+                          <label for="pwd">Dahi:</label><br>
+                      <div class="input-group">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-danger btn-number" (click)="info.dahi = info.dahi - 1;dahi(info.dahi)" data-type="minus" data-field="quant[12]">
+                              <span class="glyphicon glyphicon-minus"></span>
+                            </button>
+                        </span>
+                        <input type="text" name="quant[12]" [(ngModel)]="info.dahi" (keyup)="dahi(info.dahi)" class="form-control input-number" value="{{info.dahi}}" >
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-success btn-number"  (click)="info.dahi = info.dahi + 1;dahi(info.dahi)" data-type="plus" data-field="quant[12]">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                        </span>
+                    </div></div>
+                          <div >
+                            <label for="pwd">Paneer:</label><br>
+                        <div class="input-group">
+                          <span class="input-group-btn">
+                              <button type="button" class="btn btn-danger btn-number" (click)="info.paneer = info.paneer - 1;paneer(info.paneer)" data-type="minus" data-field="quant[13]">
+                                <span class="glyphicon glyphicon-minus"></span>
+                              </button>
+                          </span>
+                          <input type="text" name="quant[13]" [(ngModel)]="info.paneer" (keyup)="paneer(info.paneer)" class="form-control input-number" value="{{info.paneer}}" >
+                          <span class="input-group-btn">
+                              <button type="button" class="btn btn-success btn-number"  (click)="info.paneer = info.paneer + 1;paneer(info.paneer)" data-type="plus" data-field="quant[13]">
+                                  <span class="glyphicon glyphicon-plus"></span>
+                              </button>
+                          </span>
+                      </div></div>
+                      
+                           
+                        </form>
+                      </div>
+            
+                    
+            <div class="col-md-2"></div>
+            
+              <!-- <br>
+                    <pre>For Debugging Purpose <br>{{info | json}}</pre> -->
+            </div></tab>
+          </tabset>
+      
+        <div class="col-md-1"></div>
+      </div>
+
+    <!-- <div class="row">
+      <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <h2>Counter Sale</h2>
+            <form action="/action_page.php">
+             
+              <div >
+                  <label for="pwd">Cow Gold:</label><br>
+              <div class="input-group">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-danger btn-number" (click)= "dec()" data-type="minus" data-field="quant[2]">
+                      <span class="glyphicon glyphicon-minus"></span>
+                    </button>
+                </span>
+                <input type="text" name="quant[2]" [(ngModel)]="info.cgold" (keyup)="ccow(info.cgold)" class="form-control input-number" value="{{info.cgold}}" >
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-success btn-number"  (click)= "inc()" data-type="plus" data-field="quant[2]">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                </span>
+            </div></div>
+              <div>
+               RBM <input type="text" class="form-control" [(ngModel)]="info.crbm" (keyup)="cbuf(info.crbm)" placeholder="Enter quantity in litres" name="bm">
+              </div>
+              <br><div>
+                Gir <input type="text" class="form-control" [(ngModel)]="info.cgir" (keyup)="cgirc(info.cgir)" placeholder="Enter quantity in litres" name="gr">
+               </div>
+               
+            </form>
+          </div>
+
+        <div class="col-md-5">
+  <h2>Retail</h2>
+  <form action="/action_page.php">
+    
+    <div class="form-group">
+      <label for="pwd">Retail Sale:</label><br>
+     Cow Gold <input type="text" class="form-control" [(ngModel)]="info.rgold" (keyup)="rcow(info.rgold)" placeholder="Enter quantity in litres" name="cg">
+    </div>
+    <br><div>
+     RBM <input type="text" class="form-control" [(ngModel)]="info.rrbm" (keyup)="rbuf(info.rrbm)" placeholder="Enter quantity in litres" name="bm">
+    </div>
+    <br><div>
+      Gir <input type="text" class="form-control" [(ngModel)]="info.rgir" (keyup)="rgirc(info.rgir)" placeholder="Enter quantity in litres" name="gr">
+     </div>
+    
+    
+  </form>
+</div>
+<div class="col-md-1"></div>
+
+   <br>
+        <pre>For Debugging Purpose <br>{{info | json}}</pre> 
+</div> -->
+<div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+      <div class="form-group">
+        <h3 align="center">Total Profit is: {{info.profit | currency: 'INR':true}}</h3>
+       <input type="hidden"  class="form-control" [(ngModel)]="info.profit"  value=" {{info.profit | currency: 'INR':true}}">
+        <br><div class="row"> <div class="col-md-4"></div><div class="col-md-4"><button align="center" (click) = "submit(info)" class="btn btn-success">Save</button></div> <div class="col-md-4"></div></div>
+      </div></div>
+      <div class="col-md-4"></div>
+    </div>
+
+</div>
+</body>
+</html>
